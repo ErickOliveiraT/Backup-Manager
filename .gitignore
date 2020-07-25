@@ -1,2 +1,5 @@
-src/node_modules
 code.py
+src/token.pickle
+src/credentials_drive.json
+src/cloud_info.json
+src/teste
