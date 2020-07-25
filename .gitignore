@@ -3,3 +3,5 @@ src/token.pickle
 src/credentials_drive.json
 src/cloud_info.json
 src/teste
+src/temp.py
+src/__pycache__

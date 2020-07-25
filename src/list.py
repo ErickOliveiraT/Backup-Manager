@@ -2,6 +2,7 @@ from datetime import datetime
 import json
 import os
 
+METADATA_FILE = 'cloud_info.json'
 current_path = os.path.abspath(__file__)
 current_path = os.path.dirname(current_path)
 dirs = os.listdir(current_path)
@@ -40,5 +41,5 @@ for _dir in dirs:
 data = {}
 data["cloud_config"] = cloud_config
 data["upload_info"] = folders
-with open('cloud_info.json', 'w') as outfile:
+with open(METADATA_FILE, 'w') as outfile:
     json.dump(data, outfile).encode('uft8')

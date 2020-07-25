@@ -1,24 +1,17 @@
-import os
+import json
 
-MAIN_DIR = './stories/'
+METADATA_FILE = 'cloud_info.json'
 
-def getUsers(): #Get users with downloaded stories
-    folders = []
-    for x in os.listdir(MAIN_DIR):
-        folders.append(x)
-    return folders
+def load_metadata():
+    with open(METADATA_FILE) as json_file:
+        data = json.load(json_file)
+        return data
 
-def getStories(user):
-    if user != '': #Get downloaded stories from given user
-        files = []
-        for x in os.listdir(MAIN_DIR+user):
-            files.append(x)
-        return files
-    else: #Get all downloaded stories
-        files = {}
-        users = getUsers()
-        for user in users:
-            files[user] = []
-            for x in os.listdir(MAIN_DIR+user):
-                files[user].append(x)
-        return files
+def get_folder_id():
+    metadata = load_metadata()
+    cloud_config = metadata["cloud_config"]
+    return cloud_config["folder_id"]
+
+def get_cloud_metadata():
+    metadata = load_metadata()
+    return metadata["cloud_config"]
