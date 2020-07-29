@@ -2,10 +2,13 @@ from __future__ import print_function
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+from apiclient.http import MediaIoBaseDownload
 from apiclient.http import MediaFileUpload
 import filesHandler
+import requests
 import os.path
 import pickle
+import io
 
 class Config:
   def __init__(self):
@@ -61,3 +64,14 @@ def get_files(parent):
         if page_token is None:
             break
     return files
+
+def download(file_id):
+    config = Config()
+    drive_service = load_credentials(config)
+    request = drive_service.files().get_media(fileId=file_id)
+    fh = io.BytesIO()
+    downloader = MediaIoBaseDownload(fh, request)
+    done = False
+    while done is False:
+        status, done = downloader.next_chunk()
+        print("Download %d%%." % int(status.progress() * 100))

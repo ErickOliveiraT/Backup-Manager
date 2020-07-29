@@ -11,8 +11,12 @@ try:
 except Exception as error:
     str_error = str(type(error))
     if str_error.find('FileNotFoundError') != -1:
-        print('{} file not found'.format(filesHandler.METADATA_FILE))
-        sys.exit()
+        print('{} file not found.'.format(filesHandler.METADATA_FILE))
+        folder_id = input('\nInsert Google Drive Folder ID: ')
+        path.list_path(folder_id)
+        print('')
+        metadata = filesHandler.load_metadata()
+        sys.argv.clear()
 
 folder_id = metadata["cloud_config"]["folder_id"]
 

@@ -9,9 +9,8 @@ class Path_info():
         self.current_path = os.path.dirname(self.current_path)
         self.dirs = os.listdir(self.current_path)
         self.cloud_config = {
-            "account": "erick.teixeira@unifei.edu.br",
             "folder_id": folder_id,
-            "path": self.current_path.replace('\\','/').replace('D:','Disco D:')
+            "local_path": self.current_path.replace('\\','/')
         }
 
 def get_size(start_path):
