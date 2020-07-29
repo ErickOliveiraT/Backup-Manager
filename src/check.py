@@ -1,5 +1,6 @@
 from datetime import datetime
 import filesHandler
+import interface
 import drive
 import json
 import path
@@ -37,6 +38,7 @@ def get_file_id(filename):
             return file["id"]
     return False
 
+missing_itens = []
 missing = False
 file_index = 0
 for item in itens:
@@ -45,6 +47,7 @@ for item in itens:
     filename = item["cloud_filename"].split('.')[0]
     if not filename in cloud_filenames:
         missing = True
+        missing_itens.append(item["local_filename"])
         print('Missing', item["local_filename"])
     else:
         file_id = get_file_id(filename)
@@ -53,3 +56,5 @@ for item in itens:
 filesHandler.save_metadata(metadata)
 if not missing:
     print('All files are backed up!')
+else:
+    interface.show_upload_options(missing_itens)
