@@ -16,6 +16,6 @@ def get_cloud_metadata():
     metadata = load_metadata()
     return metadata["cloud_config"]
 
-def update_metadata(metadata):
+def save_metadata(metadata):
     with open(METADATA_FILE, 'w', encoding='utf-8') as outfile:
         json.dump(metadata, outfile)

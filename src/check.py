@@ -2,9 +2,24 @@ from datetime import datetime
 import filesHandler
 import drive
 import json
+import path
+import sys
 
-metadata = filesHandler.load_metadata()
+try:
+    metadata = filesHandler.load_metadata()
+except Exception as error:
+    str_error = str(type(error))
+    if str_error.find('FileNotFoundError') != -1:
+        print('{} file not found'.format(filesHandler.METADATA_FILE))
+        sys.exit()
+
 folder_id = metadata["cloud_config"]["folder_id"]
+
+if len(sys.argv) > 1:
+    if sys.argv[1] == '-update' or sys.argv[1] == '-u':
+        path.list_path(folder_id)
+        metadata = filesHandler.load_metadata()
+
 itens = metadata["upload_info"]
 
 def get_filenames(files):
@@ -27,7 +42,7 @@ file_index = 0
 for item in itens:
     checked_at = str(datetime.now()).split(' ')[0]
     metadata["upload_info"][file_index]["checked_at"] = checked_at
-    filename = item["cloud_filename"]
+    filename = item["cloud_filename"].split('.')[0]
     if not filename in cloud_filenames:
         missing = True
         print('Missing', item["local_filename"])
@@ -35,6 +50,6 @@ for item in itens:
         file_id = get_file_id(filename)
         metadata["upload_info"][file_index]["file_id"] = file_id
     file_index += 1
-filesHandler.update_metadata(metadata)
+filesHandler.save_metadata(metadata)
 if not missing:
     print('All files are backed up!')
