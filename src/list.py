@@ -41,5 +41,5 @@ for _dir in dirs:
 data = {}
 data["cloud_config"] = cloud_config
 data["upload_info"] = folders
-with open(METADATA_FILE, 'w') as outfile:
-    json.dump(data, outfile).encode('uft8')
+with open(METADATA_FILE, 'w', encoding='utf-8') as outfile:
+    json.dump(data, outfile)

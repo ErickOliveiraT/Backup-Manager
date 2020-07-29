@@ -3,7 +3,6 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from apiclient.http import MediaFileUpload
-from multiprocessing import Process
 import filesHandler
 import os.path
 import pickle
@@ -45,3 +44,20 @@ def upload(filename):
     fileID = handleUpload(filename, config)
     if fileID and config.DELETE_AFTER_UPLOAD:
         os.remove(filename)
+
+def get_files(parent):
+    config = Config()
+    drive_service = load_credentials(config)
+    page_token = None
+    files = []
+    while True:
+        response = drive_service.files().list(q="'{}' in parents".format(parent),
+                                            spaces='drive',
+                                            fields='nextPageToken, files(id, name, parents)',
+                                            pageToken=page_token).execute()
+        for file in response.get('files', []):
+            files.append(file)
+        page_token = response.get('nextPageToken', None)
+        if page_token is None:
+            break
+    return files
