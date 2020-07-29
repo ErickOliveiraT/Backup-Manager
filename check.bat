@@ -7,6 +7,7 @@ copy "C:\Users\erick\Desktop\Projetos\Backup Manager\src\filesHandler.py" "."
 copy "C:\Users\erick\Desktop\Projetos\Backup Manager\src\interface.py" "."
 copy "C:\Users\erick\Desktop\Projetos\Backup Manager\src\path.py" "."
 copy "C:\Users\erick\Desktop\Projetos\Backup Manager\src\token.pickle" "."
+cls
 python check.py -u
 pause
 del check.py
