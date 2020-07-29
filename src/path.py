@@ -12,6 +12,19 @@ class Path_info():
             "folder_id": folder_id,
             "local_path": self.current_path.replace('\\','/')
         }
+        self.ignore_list = [
+            'check.bat',
+            'check.py',
+            'compactor.py',
+            'credentials_drive.json',
+            'downloader.py',
+            'drive.py',
+            'filesHandler.py',
+            'path.py',
+            'interface.py',
+            'token.pickle',
+            '__pycache__'
+        ]
 
 def get_size(start_path):
     total_size = 0
@@ -25,7 +38,7 @@ def list_path(folder_id="FOLDER ID HERE"):
     path_info = Path_info(folder_id)
     folders = []
     for _dir in path_info.dirs:
-        if _dir == 'path.py' or _dir == filesHandler.METADATA_FILE:
+        if _dir in path_info.ignore_list or _dir == filesHandler.METADATA_FILE:
             continue
         checked_at = str(datetime.now()).split(' ')[0]
         abs_path = os.path.abspath(_dir)
