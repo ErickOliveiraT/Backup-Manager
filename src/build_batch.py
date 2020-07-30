@@ -10,7 +10,6 @@ files = [
     'check.py',
     'compactor.py',
     'credentials_drive.json',
-    'downloader.py',
     'drive.py',
     'filesHandler.py',
     'interface.py',
