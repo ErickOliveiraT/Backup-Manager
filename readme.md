@@ -47,11 +47,11 @@ Save the generated 'check.bat' file for later.
 ### Step 3: Run 'check.bat' the insert your ID from Step 2:
 ![Run3](https://raw.githubusercontent.com/ErickOliveiraT/Backup-Manager/master/images/run_3.png)
 
-If you have non uploaded files, you'll see this:
+### If you have non uploaded files, you'll see this:
 ![miss](https://raw.githubusercontent.com/ErickOliveiraT/Backup-Manager/master/images/missing.PNG)
 
-And you can upload missing itens by choosing between the options
+### And you can upload missing itens by choosing between the options
 ![upload](https://raw.githubusercontent.com/ErickOliveiraT/Backup-Manager/master/images/uploading.PNG)
 
-If all the files are uploaded, you'll see this message:
+### If all the files are uploaded, you'll see this message:
 ![ok](https://raw.githubusercontent.com/ErickOliveiraT/Backup-Manager/master/images/ok.PNG)
