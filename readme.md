@@ -50,7 +50,7 @@ Save the generated 'check.bat' file for later.
 ### If you have non uploaded files, you'll see this:
 ![miss](https://raw.githubusercontent.com/ErickOliveiraT/Backup-Manager/master/images/missing.PNG)
 
-### And you can upload missing itens by choosing between the options
+### And you can upload missing itens by choosing between the options:
 ![upload](https://raw.githubusercontent.com/ErickOliveiraT/Backup-Manager/master/images/uploading.PNG)
 
 ### If all the files are uploaded, you'll see this message:
