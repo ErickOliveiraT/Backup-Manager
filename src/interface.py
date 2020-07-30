@@ -36,20 +36,3 @@ def show_upload_options(itens):
         zip_file = compactor.build_zip(path)
         drive.upload(zip_file)
         index += 1
-
-def show_download_options(itens):
-    print('\nWhat itens do you want to download?\n')
-    print('[0] None')
-    for i in range(0,len(itens)):
-        print('[{}] {}'.format(i+1,itens[i]))
-    print('[{}] All'.format(len(itens)+1))
-    choice = input('\nOption: ')
-    if choice == '0': #None
-        return None
-    if choice.find(',') == -1 and int(choice) == len(itens)+1: #All
-        return itens
-    #Custom
-    choices = choice.split(',')
-    for i in range(0,len(choices)):
-        choices[i] = int(choices[i])-1
-    return choices
