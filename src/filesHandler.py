@@ -1,3 +1,4 @@
+import mimetypes
 import json
 
 METADATA_FILE = 'cloud_info.json'
@@ -19,3 +20,6 @@ def get_cloud_metadata():
 def save_metadata(metadata):
     with open(METADATA_FILE, 'w', encoding='utf-8') as outfile:
         json.dump(metadata, outfile)
+
+def getMIMEType(filename):
+    return mimetypes.MimeTypes().guess_type(filename)[0]

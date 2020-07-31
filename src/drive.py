@@ -38,7 +38,8 @@ def handleUpload(filename, config):
     print('Uploading {}'.format(filename))
     file_metadata = {'name': filename, 'parents': [config.PATH_ID]}
     drive_service = load_credentials(config)
-    media = MediaFileUpload(filename, mimetype='application/zip')
+    mime_type = filesHandler.getMIMEType(filename)
+    media = MediaFileUpload(filename, mimetype=mime_type)
     file = drive_service.files().create(body=file_metadata, media_body=media, fields='id').execute()
     print('Upload done')
     return file.get('id')
