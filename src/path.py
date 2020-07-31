@@ -43,7 +43,10 @@ def list_path(folder_id="FOLDER ID HERE"):
         checked_at = str(datetime.now()).split(' ')[0]
         abs_path = os.path.abspath(_dir)
         size = get_size(abs_path)
+        _type = 'folder'
+        if _dir.find('.') != -1: _type = 'file'
         folder_info = {
+            "type": _type,
             "local_filename": _dir,
             "cloud_filename": _dir,
             "size": size,

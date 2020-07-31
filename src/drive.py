@@ -15,7 +15,7 @@ class Config:
         self.SCOPES = ['https://www.googleapis.com/auth/drive']
         if not first_login:
             self.PATH_ID = filesHandler.get_folder_id()
-        self.DELETE_AFTER_UPLOAD = True
+        self.DELETE_AFTER_UPLOAD = False
 
 def load_credentials(config):
     creds = None
