@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-Backup-Manager is a free open source to sync a folder with Google Drive. It works by searching all not uploaded subfolders of a folder, compressing it and uploading to the cloud. 
+Backup-Manager is a free open source script to sync a folder with Google Drive. It works by searching all not uploaded subfolders of a folder, compressing it and uploading to the cloud. 
 
 ## Features
 
