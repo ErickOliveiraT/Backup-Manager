@@ -18,24 +18,32 @@ Backup-Manager is a free open source to sync a folder with Google Drive. It work
 $ pip install -r requirements.txt
 ```
 
-### Step 2: Login to your Google Drive Account:
+### Step 2: Enable Google Drive API
+##### Access: https://developers.google.com/drive/api/v3/quickstart/python
+##
+![enable](https://raw.githubusercontent.com/ErickOliveiraT/Backup-Manager/master/images/enable.png)
+##### Warning: This filename must be 'credentials_drive.json' not 'credentials.json' (as default)
+##
+
+### Step 3: Login to your Google Drive Account:
  Run this command:
 ```sh
 $ python src/login.py
 ```
 
-### Step 3: Copy all files in /src to a definitive folder:
+### Step 4: Copy all files in /src to a definitive folder:
  That's the folder we'll call when executing the program.
  For example: C:\Program Files\Backup Manager
 
-### Step 4: Generate a Batch File:
+### Step 5: Generate a Batch File:
  Run this command (for Windows):
 ```sh
 $ python build_batch.py -windows
 ```
 
-Save the generated 'check.bat' file for later.
-
+##### Save the generated 'check.bat' file for later.
+#
+#
 ## First Run
 
 ### Step 1: Copy the 'check.bat' file to the folder you wanna sync:
