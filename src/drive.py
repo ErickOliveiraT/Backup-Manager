@@ -11,9 +11,9 @@ import pickle
 import io
 
 class Config:
-  def __init__(self):
+  def __init__(self, first_login=False):
     self.SCOPES = ['https://www.googleapis.com/auth/drive']
-    self.PATH_ID = filesHandler.get_folder_id()
+    if first_login: self.PATH_ID = filesHandler.get_folder_id()
     self.DELETE_AFTER_UPLOAD = True
 
 def load_credentials(config):
