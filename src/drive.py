@@ -15,7 +15,7 @@ class Config:
         self.SCOPES = ['https://www.googleapis.com/auth/drive']
         if not first_login:
             self.PATH_ID = filesHandler.get_folder_id()
-        self.DELETE_AFTER_UPLOAD = False
+        self.DELETE_AFTER_UPLOAD = True
 
 def load_credentials(config):
     creds = None
@@ -43,10 +43,10 @@ def handleUpload(filename, config):
     print('Upload done')
     return file.get('id')
 
-def upload(filename):
+def upload(filename, auto_generated=False):
     config = Config()
     fileID = handleUpload(filename, config)
-    if fileID and config.DELETE_AFTER_UPLOAD:
+    if fileID and config.DELETE_AFTER_UPLOAD and auto_generated:
         os.remove(filename)
 
 def get_files(parent):

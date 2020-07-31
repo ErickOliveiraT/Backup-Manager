@@ -21,7 +21,7 @@ def show_upload_options(itens):
                 path = './' + item          
                 print('Compressing {}'.format(item))
                 zip_file = compactor.build_zip(path)
-                drive.upload(zip_file)
+                drive.upload(zip_file, True)
             index += 1
         sys.exit()
     #Custom
@@ -35,6 +35,6 @@ def show_upload_options(itens):
             path = './' + itens[int(choices[i])-1]
             print('Compressing {}'.format(itens[int(choices[i])-1]))
             zip_file = compactor.build_zip(path)
-            drive.upload(zip_file)
+            drive.upload(zip_file, True)
         index += 1
     sys.exit()
