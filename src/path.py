@@ -25,7 +25,8 @@ class Path_info():
             'token.pickle',
             '__pycache__',
             'build_batch.py',
-            'login.py'
+            'login.py',
+            'check_aio.py'
         ]
 
 def get_size(start_path):
